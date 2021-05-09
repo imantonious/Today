@@ -29,6 +29,7 @@ extension ReminderListViewController {
         cell.doneButton.setBackgroundImage(image, for: .normal)
         cell.doneButtonAction = {
             Reminder.testData[indexPath.row].isComplete.toggle()
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         return cell
     }
