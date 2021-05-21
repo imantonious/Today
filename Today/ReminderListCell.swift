@@ -15,9 +15,17 @@ class ReminderListCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var doneButton: UIButton!
     
-    var doneButtonAction: DoneButtonAction?
+    private var doneButtonAction: DoneButtonAction?
     
     @IBAction func doneButtonTriggered(_ sender: UIButton ){
         doneButtonAction?()
+    }
+    
+    func configure(title: String, doneText: String, isDone: Bool, doneButtonAction: @escaping DoneButtonAction) { // reason for @escaping -> A closure parameter needs an @escaping annotation when the closure is stored and executed after the function returns.
+        titleLabel.text = title
+        dateLabel.text = doneText
+        let image = isDone ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
+        doneButton.setBackgroundImage(image, for: .normal)
+        self.doneButtonAction = doneButtonAction
     }
 }
