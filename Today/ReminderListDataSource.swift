@@ -8,7 +8,8 @@
 import UIKit
 
 class ReminderListDataSource: NSObject {
-    
+    private lazy var dateFormatter = RelativeDateTimeFormatter()
+    // Because the property is lazy, the initializer executes the first time the property is accessed.
 }
 
 extension ReminderListDataSource: UITableViewDataSource {
@@ -23,7 +24,8 @@ extension ReminderListDataSource: UITableViewDataSource {
             fatalError("Unable to dequeue ReminderCell")
         }
         let reminder = Reminder.testData[indexPath.row]
-        cell.configure(title: reminder.title, doneText: reminder.dueDate.description, isDone: reminder.isComplete) {
+        let dateText = dateFormatter.localizedString(for: reminder.dueDate, relativeTo: Date())
+        cell.configure(title: reminder.title, dateText: dateText, isDone: reminder.isComplete) {
             // closure
             Reminder.testData[indexPath.row].isComplete.toggle()
             tableView.reloadRows(at: [indexPath], with: .none)

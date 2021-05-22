@@ -21,9 +21,9 @@ class ReminderListCell: UITableViewCell {
         doneButtonAction?()
     }
     
-    func configure(title: String, doneText: String, isDone: Bool, doneButtonAction: @escaping DoneButtonAction) { // reason for @escaping -> A closure parameter needs an @escaping annotation when the closure is stored and executed after the function returns.
+    func configure(title: String, dateText: String, isDone: Bool, doneButtonAction: @escaping DoneButtonAction) { // reason for @escaping -> A closure parameter needs an @escaping annotation when the closure is stored and executed after the function returns.
         titleLabel.text = title
-        dateLabel.text = doneText
+        dateLabel.text = dateText
         let image = isDone ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
         doneButton.setBackgroundImage(image, for: .normal)
         self.doneButtonAction = doneButtonAction
