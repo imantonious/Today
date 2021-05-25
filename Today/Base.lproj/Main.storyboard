@@ -125,27 +125,46 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditNotesCell" rowHeight="216" id="GqZ-OK-m5g">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditDateCell" rowHeight="216" id="GqZ-OK-m5g">
                                 <rect key="frame" x="0.0" y="102.5" width="414" height="216"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GqZ-OK-m5g" id="G6O-eS-dw3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tjT-R9-jeq">
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-xM-9Od">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                        </datePicker>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Ndg-xM-9Od" firstAttribute="leading" secondItem="G6O-eS-dw3" secondAttribute="leading" id="2Hm-eO-DHw"/>
+                                        <constraint firstItem="Ndg-xM-9Od" firstAttribute="top" secondItem="G6O-eS-dw3" secondAttribute="top" id="4Wt-Rd-CEC"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ndg-xM-9Od" secondAttribute="trailing" id="DPu-8y-0Co"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ndg-xM-9Od" secondAttribute="bottom" id="XyX-x6-dJK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditNotesCell" rowHeight="216" id="Pgl-O1-pek">
+                                <rect key="frame" x="0.0" y="318.5" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pgl-O1-pek" id="utr-16-v94">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ur-qI-v4j">
                                             <rect key="frame" x="20" y="11" width="374" height="194"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="194" id="E9E-3D-BRj"/>
+                                                <constraint firstAttribute="height" constant="194" id="VJx-Ya-eGL"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="tjT-R9-jeq" firstAttribute="leading" secondItem="G6O-eS-dw3" secondAttribute="leadingMargin" id="Lvs-aZ-tIX"/>
-                                        <constraint firstItem="tjT-R9-jeq" firstAttribute="top" secondItem="G6O-eS-dw3" secondAttribute="topMargin" id="bYB-cG-UpY"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="tjT-R9-jeq" secondAttribute="trailing" id="loU-96-YrE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="tjT-R9-jeq" secondAttribute="bottom" id="sZc-M2-mpu"/>
+                                        <constraint firstItem="4ur-qI-v4j" firstAttribute="leading" secondItem="utr-16-v94" secondAttribute="leadingMargin" id="3Zd-4C-fhY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4ur-qI-v4j" secondAttribute="bottom" id="5ya-WL-Yda"/>
+                                        <constraint firstItem="4ur-qI-v4j" firstAttribute="top" secondItem="utr-16-v94" secondAttribute="topMargin" id="OuM-lk-vcF"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="4ur-qI-v4j" secondAttribute="trailing" id="QBI-PR-Cwz"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
