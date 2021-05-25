@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4BA80D265D90E20007F000 /* EditTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4BA80C265D90E20007F000 /* EditTitleCell.swift */; };
+		1B4BA80F265D91650007F000 /* EditDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4BA80E265D91650007F000 /* EditDateCell.swift */; };
+		1B4BA811265D91D00007F000 /* EditNotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4BA810265D91D00007F000 /* EditNotesCell.swift */; };
 		1BA6B2C926597BF000669345 /* ReminderListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6B2C826597BF000669345 /* ReminderListDataSource.swift */; };
 		1BA6B2CB265981F900669345 /* ReminderDetailViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6B2CA265981F900669345 /* ReminderDetailViewDataSource.swift */; };
 		EA0C34082646619A00BF2EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0C34072646619A00BF2EB5 /* AppDelegate.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4BA80C265D90E20007F000 /* EditTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleCell.swift; sourceTree = "<group>"; };
+		1B4BA80E265D91650007F000 /* EditDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateCell.swift; sourceTree = "<group>"; };
+		1B4BA810265D91D00007F000 /* EditNotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNotesCell.swift; sourceTree = "<group>"; };
 		1BA6B2C826597BF000669345 /* ReminderListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListDataSource.swift; sourceTree = "<group>"; };
 		1BA6B2CA265981F900669345 /* ReminderDetailViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailViewDataSource.swift; sourceTree = "<group>"; };
 		EA0C34042646619A00BF2EB5 /* Today.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Today.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +53,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B4BA80B265D90B90007F000 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA0C341D26467AF200BF2EB5 /* ReminderListCell.swift */,
+				1B4BA80C265D90E20007F000 /* EditTitleCell.swift */,
+				1B4BA80E265D91650007F000 /* EditDateCell.swift */,
+				1B4BA810265D91D00007F000 /* EditNotesCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EA0C33FB2646619A00BF2EB5 = {
 			isa = PBXGroup;
 			children = (
@@ -73,8 +90,8 @@
 				1BA6B2C826597BF000669345 /* ReminderListDataSource.swift */,
 				EADDF6D126477D1B00A9B8B2 /* ReminderDetailViewController.swift */,
 				EA0C340D2646619A00BF2EB5 /* Main.storyboard */,
-				EA0C341D26467AF200BF2EB5 /* ReminderListCell.swift */,
 				EA0C341B26466D2C00BF2EB5 /* Reminder.swift */,
+				1B4BA80B265D90B90007F000 /* Views */,
 				EA0C34102646619C00BF2EB5 /* Assets.xcassets */,
 				EA0C34122646619C00BF2EB5 /* LaunchScreen.storyboard */,
 				EA0C34152646619C00BF2EB5 /* Info.plist */,
@@ -154,10 +171,13 @@
 			files = (
 				EA0C340C2646619A00BF2EB5 /* ReminderListViewController.swift in Sources */,
 				EA0C341E26467AF200BF2EB5 /* ReminderListCell.swift in Sources */,
+				1B4BA80D265D90E20007F000 /* EditTitleCell.swift in Sources */,
 				EA0C34082646619A00BF2EB5 /* AppDelegate.swift in Sources */,
 				EADDF6D226477D1B00A9B8B2 /* ReminderDetailViewController.swift in Sources */,
 				1BA6B2CB265981F900669345 /* ReminderDetailViewDataSource.swift in Sources */,
 				EA0C340A2646619A00BF2EB5 /* SceneDelegate.swift in Sources */,
+				1B4BA811265D91D00007F000 /* EditNotesCell.swift in Sources */,
+				1B4BA80F265D91650007F000 /* EditDateCell.swift in Sources */,
 				EA0C341C26466D2C00BF2EB5 /* Reminder.swift in Sources */,
 				1BA6B2C926597BF000669345 /* ReminderListDataSource.swift in Sources */,
 			);
