@@ -104,6 +104,51 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditTitleCell" id="j70-OA-OeF">
+                                <rect key="frame" x="0.0" y="68" width="414" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j70-OA-OeF" id="p7Q-j8-zrr">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TextField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gKM-x4-e1A">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="34.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="gKM-x4-e1A" secondAttribute="trailing" constant="20" symbolic="YES" id="BGn-wv-nda"/>
+                                        <constraint firstItem="gKM-x4-e1A" firstAttribute="leading" secondItem="p7Q-j8-zrr" secondAttribute="leading" constant="20" symbolic="YES" id="FRk-4y-b0t"/>
+                                        <constraint firstAttribute="bottom" secondItem="gKM-x4-e1A" secondAttribute="bottom" id="LFA-SL-RkH"/>
+                                        <constraint firstItem="gKM-x4-e1A" firstAttribute="top" secondItem="p7Q-j8-zrr" secondAttribute="top" id="deC-9B-kuu"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditNotesCell" rowHeight="216" id="GqZ-OK-m5g">
+                                <rect key="frame" x="0.0" y="102.5" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GqZ-OK-m5g" id="G6O-eS-dw3">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tjT-R9-jeq">
+                                            <rect key="frame" x="20" y="11" width="374" height="194"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="194" id="E9E-3D-BRj"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tjT-R9-jeq" firstAttribute="leading" secondItem="G6O-eS-dw3" secondAttribute="leadingMargin" id="Lvs-aZ-tIX"/>
+                                        <constraint firstItem="tjT-R9-jeq" firstAttribute="top" secondItem="G6O-eS-dw3" secondAttribute="topMargin" id="bYB-cG-UpY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tjT-R9-jeq" secondAttribute="trailing" id="loU-96-YrE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tjT-R9-jeq" secondAttribute="bottom" id="sZc-M2-mpu"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="hHZ-wQ-w1L" id="M2i-4g-G8R"/>
