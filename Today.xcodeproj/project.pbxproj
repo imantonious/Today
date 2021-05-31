@@ -64,6 +64,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1BB3890126622DCC00FF113B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EA0C340B2646619A00BF2EB5 /* ReminderListViewController.swift */,
+				EADDF6D126477D1B00A9B8B2 /* ReminderDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		EA0C33FB2646619A00BF2EB5 = {
 			isa = PBXGroup;
 			children = (
@@ -85,10 +94,9 @@
 			children = (
 				EA0C34072646619A00BF2EB5 /* AppDelegate.swift */,
 				EA0C34092646619A00BF2EB5 /* SceneDelegate.swift */,
-				EA0C340B2646619A00BF2EB5 /* ReminderListViewController.swift */,
 				1BA6B2CA265981F900669345 /* ReminderDetailViewDataSource.swift */,
 				1BA6B2C826597BF000669345 /* ReminderListDataSource.swift */,
-				EADDF6D126477D1B00A9B8B2 /* ReminderDetailViewController.swift */,
+				1BB3890126622DCC00FF113B /* Controller */,
 				EA0C340D2646619A00BF2EB5 /* Main.storyboard */,
 				EA0C341B26466D2C00BF2EB5 /* Reminder.swift */,
 				1B4BA80B265D90B90007F000 /* Views */,
