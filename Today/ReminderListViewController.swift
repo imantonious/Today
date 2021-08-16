@@ -55,7 +55,8 @@ class ReminderListViewController: UITableViewController {
         let detailViewController: ReminderDetailViewController = storyboard.instantiateViewController(identifier: Self.detailViewControllerIdentifier)
         let reminder = Reminder(title: "New Reminder", dueDate: Date())
         detailViewController.configure(with: reminder, isNew: true, addAction: { reminder in
-            
+            self.reminderListDataSource?.add(reminder)
+            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         })
         // We need to create a new navigation controller and embed the detail controller within it to include a navigation title and buttons
         let navigationController = UINavigationController(rootViewController: detailViewController)
