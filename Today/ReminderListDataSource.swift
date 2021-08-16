@@ -9,7 +9,14 @@ import UIKit
 
 class ReminderListDataSource: NSObject {
     private lazy var dateFormatter = RelativeDateTimeFormatter()
-    // Because the property is lazy, the initializer executes the first time the property is accessed.
+    
+    func update(_ reminder: Reminder, at row: Int) {
+        Reminder.testData[row] = reminder
+    }
+    
+    func reminder(at row: Int) -> Reminder {
+        return Reminder.testData[row]
+    }
 }
 
 extension ReminderListDataSource: UITableViewDataSource {
