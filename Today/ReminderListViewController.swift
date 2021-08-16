@@ -54,10 +54,10 @@ class ReminderListViewController: UITableViewController {
         let storyboard = UIStoryboard(name: Self.mainStoryBoardName, bundle: nil)
         let detailViewController: ReminderDetailViewController = storyboard.instantiateViewController(identifier: Self.detailViewControllerIdentifier)
         let reminder = Reminder(title: "New Reminder", dueDate: Date())
-        detailViewController.configure(with: reminder) { reminder in
-            // We need to create a new navigation controller and embed the detail controller within it to include a navigation title and buttons
+        detailViewController.configure(with: reminder, isNew: true, addAction: { reminder in
             
-        }
+        })
+        // We need to create a new navigation controller and embed the detail controller within it to include a navigation title and buttons
         let navigationController = UINavigationController(rootViewController: detailViewController)
         present(navigationController, animated: true, completion: nil)
         
