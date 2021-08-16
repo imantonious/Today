@@ -89,8 +89,11 @@ class ReminderDetailEditDataSource: NSObject {
                 }
             }
         case .notes:
-            if let notesVell = cell as? EditNotesCell {
-                notesVell.configure(notes: reminder.notes)
+            if let notesCell = cell as? EditNotesCell {
+                notesCell.configure(notes: reminder.notes) { notes in
+                    self.reminder.notes = notes
+                    self.reminderChangeAction?(self.reminder)
+                }
             }
         }
         return cell
