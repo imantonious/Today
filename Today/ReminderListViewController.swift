@@ -75,6 +75,7 @@ class ReminderListViewController: UITableViewController {
         reminderListDataSource?.filter = filter
         tableView.reloadData()
         self.refreshProgressView()
+        refreshBackground()
     }
 
     private func addReminder() {
@@ -100,6 +101,20 @@ class ReminderListViewController: UITableViewController {
         UIView.animate(withDuration: 0.2) {
             self.progressContainerView.layoutSubviews()
         }
+    }
+    
+    private func refreshBackground() {
+        tableView.backgroundView = nil
+        let backgroundView = UIView()
+        if let backgroundColors = filter.backgroundColors {
+            let gradientBackgroundLayer = CAGradientLayer()
+            gradientBackgroundLayer.colors = backgroundColors
+            gradientBackgroundLayer.frame = tableView.frame
+            backgroundView.layer.addSublayer(gradientBackgroundLayer)
+        } else {
+            backgroundView.backgroundColor = filter.substituteBackgroundColor
+        }
+        tableView.backgroundView = backgroundView
     }
 }
 
