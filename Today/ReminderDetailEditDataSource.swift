@@ -5,6 +5,8 @@
 //  Created by Antonio Toriz on 8/15/21.
 //
 
+import Foundation
+
 import UIKit
 
 class ReminderDetailEditDataSource: NSObject {
@@ -42,7 +44,6 @@ class ReminderDetailEditDataSource: NSObject {
             case .notes:
                 return "EditNotesCell"
             }
-            
         }
     }
     
@@ -88,6 +89,7 @@ class ReminderDetailEditDataSource: NSObject {
                     dueDateCell.configure(date: reminder.dueDate) { date in
                         self.reminder.dueDate = date
                         self.reminderChangeAction?(self.reminder)
+                        let indexPath = IndexPath(row: 0, section: section.rawValue)
                         tableView.reloadRows(at: [indexPath], with: .automatic)
                     }
                 }
@@ -121,7 +123,6 @@ extension ReminderDetailEditDataSource: UITableViewDataSource {
         guard let section = ReminderSection(rawValue: section) else {
             fatalError("Section index out of range")
         }
-        
         return section.displayText
     }
     

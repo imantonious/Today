@@ -15,7 +15,6 @@ struct Reminder {
     var isComplete: Bool = false
 }
 
-// Extensions can help you organize your code by keeping your structure or class small and focused, while categorizing features.
 extension Reminder {
     static var testData = [
         Reminder(id: UUID().uuidString, title: "Submit reimbursement report", dueDate: Date().addingTimeInterval(800.0),
