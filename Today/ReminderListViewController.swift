@@ -64,7 +64,7 @@ class ReminderListViewController: UITableViewController {
         let reminder = Reminder(id: UUID().uuidString, title: "New Reminder", dueDate: Date())
         detailViewController.configure(with: reminder, isNew: true, addAction: { reminder in
             if let index = self.reminderListDataSource?.add(reminder) {
-                self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                self.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
             }
         })
         let navigationController = UINavigationController(rootViewController: detailViewController)
