@@ -8,14 +8,17 @@
 import UIKit
 
 class ReminderListViewController: UITableViewController {
-    
-    private var reminderListDataSource: ReminderListDataSource?
+    @IBOutlet var filterSegmentedControl: UISegmentedControl!
     
     static let showDetailSegueIdentifier = "ShowReminderDetailSegue"
-    static let mainStoryBoardName = "Main"
+    static let mainStoryboardName = "Main"
     static let detailViewControllerIdentifier = "ReminderDetailViewController"
     
-    // This method notifies the view controller before a segue is performed.
+    private var reminderListDataSource: ReminderListDataSource?
+    private var filter: ReminderListDataSource.Filter {
+        return ReminderListDataSource.Filter(rawValue: filterSegmentedControl.selectedSegmentIndex) ?? .today
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Self.showDetailSegueIdentifier,
            let destination = segue.destination as? ReminderDetailViewController,
@@ -25,10 +28,10 @@ class ReminderListViewController: UITableViewController {
             guard let reminder = reminderListDataSource?.reminder(at: rowIndex) else {
                 fatalError("Couldn't find data source for reminder list.")
             }
-            destination.configure(with: reminder) { reminder in
+            destination.configure(with: reminder, editAction: { reminder in
                 self.reminderListDataSource?.update(reminder, at: rowIndex)
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            }
+            })
         }
     }
     
@@ -50,17 +53,20 @@ class ReminderListViewController: UITableViewController {
         addReminder()
     }
     
+    @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
+        reminderListDataSource?.filter = filter
+        tableView.reloadData()
+    }
+    
     private func addReminder() {
-        let storyboard = UIStoryboard(name: Self.mainStoryBoardName, bundle: nil)
+        let storyboard = UIStoryboard(name: Self.mainStoryboardName, bundle: nil)
         let detailViewController: ReminderDetailViewController = storyboard.instantiateViewController(identifier: Self.detailViewControllerIdentifier)
         let reminder = Reminder(title: "New Reminder", dueDate: Date())
         detailViewController.configure(with: reminder, isNew: true, addAction: { reminder in
             self.reminderListDataSource?.add(reminder)
             self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         })
-        // We need to create a new navigation controller and embed the detail controller within it to include a navigation title and buttons
         let navigationController = UINavigationController(rootViewController: detailViewController)
         present(navigationController, animated: true, completion: nil)
-        
     }
 }
