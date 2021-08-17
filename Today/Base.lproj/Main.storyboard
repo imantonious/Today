@@ -15,9 +15,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="0ic-M4-qpD" userLabel="Progress Header View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJT-DB-CHd" userLabel="Progress Container View">
+                                    <rect key="frame" x="60" y="77" width="294" height="260"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPR-j2-XY3" userLabel="Percent Incomplete View">
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="127"/>
+                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eK-m9-5o4" userLabel="Percent Complete View">
+                                            <rect key="frame" x="0.0" y="126" width="294" height="134"/>
+                                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="146" id="d9w-bq-Iyx"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="7eK-m9-5o4" secondAttribute="trailing" id="538-VZ-tnu"/>
+                                        <constraint firstItem="7eK-m9-5o4" firstAttribute="top" secondItem="yPR-j2-XY3" secondAttribute="bottom" constant="-1" id="94r-Rq-KVB"/>
+                                        <constraint firstAttribute="trailing" secondItem="yPR-j2-XY3" secondAttribute="trailing" id="BL3-zu-la6"/>
+                                        <constraint firstItem="yPR-j2-XY3" firstAttribute="leading" secondItem="yJT-DB-CHd" secondAttribute="leading" id="GGy-Md-nAI"/>
+                                        <constraint firstItem="7eK-m9-5o4" firstAttribute="leading" secondItem="yJT-DB-CHd" secondAttribute="leading" id="N2n-gz-ksp"/>
+                                        <constraint firstItem="yPR-j2-XY3" firstAttribute="top" secondItem="yJT-DB-CHd" secondAttribute="top" id="kZm-Mb-bWf"/>
+                                        <constraint firstAttribute="width" secondItem="0ic-M4-qpD" secondAttribute="height" multiplier="0.7" id="sEV-HV-328"/>
+                                        <constraint firstAttribute="bottom" secondItem="7eK-m9-5o4" secondAttribute="bottom" id="zrE-NM-GNi"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <constraints>
+                                <constraint firstItem="yJT-DB-CHd" firstAttribute="centerY" secondItem="0ic-M4-qpD" secondAttribute="centerY" id="8nY-QQ-hHK"/>
+                                <constraint firstItem="yJT-DB-CHd" firstAttribute="width" secondItem="0ic-M4-qpD" secondAttribute="width" multiplier="0.710145" id="QNs-at-f45"/>
+                                <constraint firstItem="yJT-DB-CHd" firstAttribute="centerX" secondItem="0ic-M4-qpD" secondAttribute="centerX" id="str-EA-NKm"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReminderListCell" rowHeight="99" id="A8L-pi-gbx" customClass="ReminderListCell" customModule="Today" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="99"/>
+                                <rect key="frame" x="0.0" y="438.5" width="414" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A8L-pi-gbx" id="76I-CK-Tu9">
                                     <rect key="frame" x="0.0" y="0.0" width="384.5" height="99"/>
@@ -101,7 +140,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD1-ZW-QcE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084.0579710144928" y="33.482142857142854"/>
+            <point key="canvasLocation" x="1082.608695652174" y="33.482142857142854"/>
         </scene>
         <!--View Reminder-->
         <scene sceneID="ZVM-YD-K9a">
@@ -247,6 +286,15 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
