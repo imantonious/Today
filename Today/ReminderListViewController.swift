@@ -49,6 +49,7 @@ class ReminderListViewController: UITableViewController {
             self.refreshProgressView()
         })
         tableView.dataSource = reminderListDataSource
+        self.refreshBackground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
