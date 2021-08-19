@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EventKit
 
 class ReminderListDataSource: NSObject {
     typealias ReminderCompletedAction = (Int) -> Void
@@ -35,13 +36,15 @@ class ReminderListDataSource: NSObject {
         return Reminder.testData.filter { filter.shouldInclude(date: $0.dueDate) }.sorted { $0.dueDate < $1.dueDate }
     }
     
-    var percentageComplete: Double {
+    var percentComplete: Double {
         guard filteredReminders.count > 0 else {
             return 1
         }
         let numComplete: Double = filteredReminders.reduce(0) { $0 + ($1.isComplete ? 1 : 0) }
         return numComplete / Double(filteredReminders.count)
     }
+    
+    private let eventStore = EKEventStore()
     
     private var reminderCompletedAction: ReminderCompletedAction?
     private var reminderDeletedAction: ReminderDeletedAction?
@@ -88,12 +91,12 @@ extension ReminderListDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.reminderListCellIdentifier, for: indexPath)
-                as? ReminderListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.reminderListCellIdentifier, for: indexPath) as? ReminderListCell else {
             fatalError("Unable to dequeue ReminderCell")
         }
         let currentReminder = reminder(at: indexPath.row)
         let dateText = currentReminder.dueDateTimeText(for: filter)
+        
         cell.configure(title: currentReminder.title, dateText: dateText, isDone: currentReminder.isComplete) {
             var modifiedReminder = currentReminder
             modifiedReminder.isComplete.toggle()
@@ -134,7 +137,7 @@ extension Reminder {
     }()
     
     static let todayDateFormatter: DateFormatter = {
-        let format = NSLocalizedString("'Today at' %@", comment: "format string for dates occuring today")
+        let format = NSLocalizedString("'Today at '%@", comment: "format string for dates occurring today")
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = String(format: format, "hh:mm a")
         return dateFormatter
@@ -155,5 +158,21 @@ extension Reminder {
             }
         }
     }
+}
+
+extension ReminderListDataSource {
+    private var isAvailable: Bool {
+        EKEventStore.authorizationStatus(for: .reminder) == .authorized
+    }
     
+    private func requestAccess(completion: @escaping (Bool) -> Void) {
+        let currentStatus = EKEventStore.authorizationStatus(for: .reminder)
+        guard currentStatus == .notDetermined else {
+            completion(currentStatus == .authorized)
+            return
+        }
+        eventStore.requestAccess(to: .reminder) { success, error in
+            completion(success)
+        }
+    }
 }
