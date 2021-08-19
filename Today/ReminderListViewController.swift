@@ -93,7 +93,7 @@ class ReminderListViewController: UITableViewController {
     }
     
     private func refreshProgressView() {
-        guard let percentComplete = reminderListDataSource?.percentageComplete else {
+        guard let percentComplete = reminderListDataSource?.percentComplete else {
             return
         }
         let totalHeight = progressContainerView.bounds.size.height
